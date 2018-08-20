@@ -5,11 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
-
-// TODO: photo support
 
 const (
 	dataURL        = "https://www.linode.com/about"
@@ -38,10 +37,28 @@ func Load() ([]Employee, error) {
 	}
 
 	divs := doc.Find("div.employee-display")
-	for _, node := range divs.Nodes {
-		fmt.Printf("%+v\n", node)
-	}
-	return []Employee{}, nil
+	el := make([]Employee, len(divs.Nodes))
+
+	divs.Each(func(i int, s *goquery.Selection) {
+		social := make(map[string]string)
+		s.Find("a.employee-link").Each(func(_ int, ss *goquery.Selection) {
+			class := ss.AttrOr("class", "")
+			parts := strings.Split(class, "-")
+			site := parts[len(parts)-1]
+			link := ss.AttrOr("href", "")
+			social[site] = link
+		})
+
+		e := Employee{
+			Username: s.Parent().Parent().AttrOr("id", ""),
+			Fullname: s.Find("strong").Text(),
+			Title:    s.Find("small").Text(),
+			Social:   social,
+		}
+		el[i] = e
+	})
+
+	return el, nil
 }
 
 // Photo downloads the photo for an employee
