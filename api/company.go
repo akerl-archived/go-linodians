@@ -6,6 +6,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+// Company describes a map of Employees by username
 type Company map[string]Employee
 
 func companyFromDivFunc(c Company) func(int, *goquery.Selection) {

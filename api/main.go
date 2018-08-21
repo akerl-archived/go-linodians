@@ -16,7 +16,11 @@ func download(url string) ([]byte, error) {
 	if err != nil {
 		return []byte{}, err
 	}
-	defer res.Body.Close()
+	defer func() {
+		if res.Body.Close() != nil {
+			panic(err)
+		}
+	}()
 	if res.StatusCode != 200 {
 		return []byte{}, fmt.Errorf("HTTP call failed: %s (%d)", url, res.StatusCode)
 	}
