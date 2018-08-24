@@ -43,14 +43,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d4a222552c8c79ed76e1b234593c3eaaad2c40dfa55ab69bbdcaa3173c4b500f"
+  digest = "1:70b91c9cfc3da0ad16c5bf50fd277ca5402c671c582b84819308a6b2477d3661"
   name = "golang.org/x/net"
   packages = [
     "html",
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "922f4815f713f213882e8ef45e0d315b164d705c"
+  revision = "faa378e6dbaed88bd8100f8bcf09939375c6e8fa"
 
 [solve-meta]
   analyzer-name = "dep"
