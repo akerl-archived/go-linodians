@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/akerl/go-linodians/api"
-
 	"github.com/spf13/cobra"
 )
 
