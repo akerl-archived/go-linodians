@@ -50,7 +50,7 @@
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "927f97764cc334a6575f4b7a1584a147864d5723"
+  revision = "1e06a53dbb7e2ed46e91183f219db23c6943c532"
 
 [solve-meta]
   analyzer-name = "dep"
