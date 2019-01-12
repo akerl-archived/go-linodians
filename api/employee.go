@@ -35,7 +35,7 @@ func employeeFromDiv(s *goquery.Selection) Employee {
 // Photo downloads the photo for an employee
 func (e Employee) Photo() ([]byte, error) {
 	if e.Username == "" {
-		return []byte{}, fmt.Errorf("Username not set")
+		return []byte{}, fmt.Errorf("username not set")
 	}
 	url := fmt.Sprintf(photoURLFormat, e.Username)
 	return download(url)

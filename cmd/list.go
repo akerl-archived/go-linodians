@@ -17,7 +17,7 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 }
 
-func listRunner(cmd *cobra.Command, args []string) error {
+func listRunner(_ *cobra.Command, _ []string) error {
 	list, err := api.Load()
 	if err != nil {
 		return err

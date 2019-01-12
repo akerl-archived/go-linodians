@@ -19,7 +19,7 @@ func init() {
 	rootCmd.AddCommand(exportCmd)
 }
 
-func exportRunner(cmd *cobra.Command, args []string) error {
+func exportRunner(_ *cobra.Command, args []string) error {
 	list, err := api.Load()
 	if err != nil {
 		return err

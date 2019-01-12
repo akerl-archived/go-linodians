@@ -19,9 +19,9 @@ func init() {
 	rootCmd.AddCommand(diffCmd)
 }
 
-func diffRunner(cmd *cobra.Command, args []string) error {
+func diffRunner(_ *cobra.Command, args []string) error {
 	if len(args) < 2 {
-		return fmt.Errorf("Too few args provided. Check --help for more info")
+		return fmt.Errorf("too few args provided. Check --help for more info")
 	}
 	oldC, err := loadJSON(args[0])
 	if err != nil {
